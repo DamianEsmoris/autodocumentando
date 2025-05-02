@@ -1,0 +1,25 @@
+name: documentar
+
+on:
+  push:
+    branch:
+      - 'main'
+
+    jobs:
+      create-html-doc:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/chekout@v4
+          - name: create html documentation
+            id: merge-code-doc
+            run: bash doc.sh
+          - uses: docker://pandoc/latex:3.5
+            with:
+              args: salida.md output/archivos-mergeados.pdf
+          - uses: actions/upload-artifact@v4
+            with:
+              name: output
+              path: output
+            run: rm salida.md
+
+
