@@ -23,6 +23,7 @@ jobs:
         if: github.ref_type == 'tag'
         with:
           file: archivos-mergeados.html
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
       - name: remove markdown
         run: rm salida.md
 
