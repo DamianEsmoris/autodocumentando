@@ -18,6 +18,7 @@ jobs:
           args: salida.md --output=archivos-mergeados.html
       - name: release html
         uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
         with:
           file: archivos-mergeados.html
       - name: remove markdown
