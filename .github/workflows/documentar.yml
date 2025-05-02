@@ -9,7 +9,7 @@ jobs:
   create-html-doc:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/chekout@v4
+      - uses: actions/checkout@v4
       - name: create html documentation
         id: merge-code-doc
         run: bash doc.sh
