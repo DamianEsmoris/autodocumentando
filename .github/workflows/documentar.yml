@@ -16,11 +16,11 @@ jobs:
       - uses: docker://pandoc/latex:3.5
         with:
           args: salida.md --output=archivos-mergeados.html
-      - uses: actions/upload-artifact@v4
+      - name: release html
+        uses: softprops/action-gh-release@v2
         with:
-          name: doc-html
-          path: archivos-mergeados.html
-          overwrite: true
-      - run: rm salida.md
+          file: archivos-mergeados.html
+      - name: remove markdown
+        run: rm salida.md
 
 
