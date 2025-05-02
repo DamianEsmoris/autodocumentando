@@ -15,11 +15,12 @@ jobs:
         run: bash doc.sh
       - uses: docker://pandoc/latex:3.5
         with:
-          args: salida.md output/archivos-mergeados.pdf
+          args: salida.md --output=archivos-mergeados.html
       - uses: actions/upload-artifact@v4
         with:
-          name: output
-          path: output
+          name: doc-html
+          path: archivos-mergeados.html
+          overwrite: true
       - run: rm salida.md
 
 
