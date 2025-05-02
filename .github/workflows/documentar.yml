@@ -2,7 +2,7 @@ name: documentar
 
 on:
   push:
-    branch:
+    branches:
       - 'main'
 
 jobs:
@@ -20,6 +20,6 @@ jobs:
         with:
           name: output
           path: output
-        run: rm salida.md
+      - run: rm salida.md
 
 
