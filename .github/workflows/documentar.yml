@@ -2,8 +2,6 @@ name: documentar
 
 on:
   push:
-    branches:
-      - 'main'
     tags:
       - 'release-v*'
 
@@ -24,7 +22,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
-          file: archivos-mergeados.html
+          files: archivos-mergeados.html
           token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
       - name: remove markdown
         run: rm salida.md
